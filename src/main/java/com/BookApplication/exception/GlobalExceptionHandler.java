@@ -16,4 +16,12 @@ public class GlobalExceptionHandler {
         return new ResponseEntity<Response>(
                 new Response(HttpStatus.NOT_FOUND.value(), ApplicationConfig.getMessageAccessor().getMessage("102"), ""), HttpStatus.NOT_FOUND);
     }
+
+    @ExceptionHandler(AuthorNotFoundException.class)
+    public ResponseEntity<Response> authorNotFound(AuthorNotFoundException notFound)
+    {
+
+        return new ResponseEntity<Response>(
+                new Response(HttpStatus.NOT_FOUND.value(), ApplicationConfig.getMessageAccessor().getMessage("108"), ""), HttpStatus.NOT_FOUND);
+    }
 }
